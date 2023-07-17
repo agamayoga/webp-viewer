@@ -20,8 +20,9 @@ A guardian on the entrance to Shakti Hall
 View from Khao Ra mountain on Koh Phangan
 ![6-khao-ra.webp](https://github.com/agamayoga/webp-viewer/blob/main/Samples/6-khao-ra.webp?raw=true)
 
-Srithanu with a motorbike, to test the portrait picture size
+Srithanu with a motorbike, to test portrait picture size
 ![7-srithanu.webp](https://github.com/agamayoga/webp-viewer/blob/main/Samples/7-srithanu.webp?raw=true)
 
-Sri Yantra in WebP format, to test the transparent background
+Sri Yantra in WebP format, to test transparent background
+
 ![8-yantra.webp](https://github.com/agamayoga/webp-viewer/blob/main/Samples/8-yantra.webp?raw=true)

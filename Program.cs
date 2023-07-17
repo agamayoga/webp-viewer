@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Manipura
+namespace Agama
 {
     static class Program
     {

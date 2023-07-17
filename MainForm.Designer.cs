@@ -1,4 +1,4 @@
-﻿namespace Manipura
+﻿namespace Agama
 {
     partial class MainForm
     {

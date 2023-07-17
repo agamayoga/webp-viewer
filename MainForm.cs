@@ -4,7 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace Manipura
+namespace Agama
 {
     public partial class MainForm : Form
     {
@@ -20,7 +20,7 @@ namespace Manipura
 
 #if DEBUG
             //Debug only - simulate command line arguments
-            //args = new string[] { "webpviewer.exe", @"..\..\Samples\5-seashell.webp" };
+            args = new string[] { "webpviewer.exe", @"..\..\Samples\5-seashell.webp" };
 #endif
 
             //Get initial path - first argument after assembly name
