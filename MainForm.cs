@@ -58,6 +58,9 @@ namespace Agama
         
         protected void LoadImage(string path)
         {
+            int width = 0;
+            int height = 0;
+
             try
             {
                 //Try to read the file as WebP format
@@ -65,8 +68,11 @@ namespace Agama
                 using (Stream inputStream = File.Open(path, System.IO.FileMode.Open))
                 {
                     var bytes = ReadToEnd(inputStream);
-                    var outBitmap = decoder.DecodeFromBytes(bytes, bytes.LongLength);
-                    imgView.Image = outBitmap;
+                    var bitmap = decoder.DecodeFromBytes(bytes, bytes.LongLength);
+                    imgView.Image = bitmap;
+
+                    width = bitmap.Width;
+                    height = bitmap.Height;
                 }
             }
             catch (Exception)
@@ -78,6 +84,9 @@ namespace Agama
                     {
                         var bitmap = Image.FromStream(inputStream);
                         imgView.Image = bitmap;
+
+                        width = bitmap.Width;
+                        height = bitmap.Height;
                     }
                 }
                 catch (Exception)
@@ -86,9 +95,17 @@ namespace Agama
                     imgView.Image = null;
                 }
             }
-            
+
+            //Store current image path
             this.CurrentFileName = Path.GetFileName(path);
-            this.Text = "WebP Viewer - " + this.CurrentFileName;
+
+            //Build window title
+            string title = string.Format("WebP Viewer - {0}", this.CurrentFileName);
+            if (imgView.Image != null && width > 0 && height > 0)
+            {
+                title += string.Format(" ({0}x{1})", width, height);
+            }
+            this.Text = title;
         }
 
         protected void FindNeighbourImages(out string prev, out string next)
