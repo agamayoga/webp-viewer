@@ -28,13 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.imgView = new System.Windows.Forms.PictureBox();
+            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.itemSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemSaveAsJpeg = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemSaveAsPng = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.imgView)).BeginInit();
+            this.contextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // imgView
             // 
+            this.imgView.ContextMenuStrip = this.contextMenu;
             this.imgView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imgView.Location = new System.Drawing.Point(0, 0);
             this.imgView.Name = "imgView";
@@ -42,6 +49,36 @@
             this.imgView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgView.TabIndex = 0;
             this.imgView.TabStop = false;
+            // 
+            // contextMenu
+            // 
+            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itemSaveAs});
+            this.contextMenu.Name = "contextMenu";
+            this.contextMenu.Size = new System.Drawing.Size(181, 48);
+            // 
+            // itemSaveAs
+            // 
+            this.itemSaveAs.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itemSaveAsJpeg,
+            this.itemSaveAsPng});
+            this.itemSaveAs.Name = "itemSaveAs";
+            this.itemSaveAs.Size = new System.Drawing.Size(180, 22);
+            this.itemSaveAs.Text = "Save as...";
+            // 
+            // itemSaveAsJpeg
+            // 
+            this.itemSaveAsJpeg.Name = "itemSaveAsJpeg";
+            this.itemSaveAsJpeg.Size = new System.Drawing.Size(180, 22);
+            this.itemSaveAsJpeg.Text = "JPEG";
+            this.itemSaveAsJpeg.Click += new System.EventHandler(this.itemSaveAsJpeg_Click);
+            // 
+            // itemSaveAsPng
+            // 
+            this.itemSaveAsPng.Name = "itemSaveAsPng";
+            this.itemSaveAsPng.Size = new System.Drawing.Size(180, 22);
+            this.itemSaveAsPng.Text = "PNG";
+            this.itemSaveAsPng.Click += new System.EventHandler(this.itemSaveAsPng_Click);
             // 
             // MainForm
             // 
@@ -54,6 +91,7 @@
             this.Text = "WebP Viewer";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.imgView)).EndInit();
+            this.contextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -61,6 +99,10 @@
         #endregion
 
         private System.Windows.Forms.PictureBox imgView;
+        private System.Windows.Forms.ContextMenuStrip contextMenu;
+        private System.Windows.Forms.ToolStripMenuItem itemSaveAs;
+        private System.Windows.Forms.ToolStripMenuItem itemSaveAsJpeg;
+        private System.Windows.Forms.ToolStripMenuItem itemSaveAsPng;
     }
 }
 

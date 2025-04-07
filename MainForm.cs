@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 
@@ -180,6 +181,41 @@ namespace Agama
                         LoadImage(next);
                     }
                     break;
+            }
+        }
+
+        private void itemSaveAsJpeg_Click(object sender, EventArgs e)
+        {
+            SaveAs(ImageFormat.Jpeg);
+        }
+
+        private void itemSaveAsPng_Click(object sender, EventArgs e)
+        {
+            SaveAs(ImageFormat.Png);
+        }
+
+        protected void SaveAs(ImageFormat format)
+        {
+            Image image = imgView.Image;
+            if (image == null)
+            {
+                MessageBox.Show("No image open!", "No image", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = format == ImageFormat.Jpeg ? "JPEG format (*.jpg)|*.jpg" : "PNG format (*.png)|*.png";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string path = dialog.FileName;
+                    image.Save(path, format);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
